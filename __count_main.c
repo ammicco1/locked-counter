@@ -26,6 +26,10 @@ int main(int argc, char **argv){
         pthread_create(&t[i], NULL, worker, NULL);
     }
 
+    for(i = 0; i < thread_num; i++){
+        pthread_join(t[i], NULL);
+    }
+
     printf("il valore finale del counter è: %d\n", get(&counter));
     
     return 0;
