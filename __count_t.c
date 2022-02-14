@@ -1,4 +1,4 @@
-#include "__count_t.h"
+#include "./__count_t.h"
 
 void init(__count_t *counter){
     counter -> value = 0;

@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "__count_t.h"
+#include "./__count_t.h"
 
 __count_t counter;
 
