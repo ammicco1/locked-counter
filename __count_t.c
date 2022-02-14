@@ -6,22 +6,22 @@ void init(__count_t *counter){
 }
 
 void increment(__count_t *counter){
-    pthread_mutex_lock(counter -> lock);
+    pthread_mutex_lock(&counter -> lock);
     counter -> value++;
-    pthread_mutex_unlock(counter -> lock);
+    pthread_mutex_unlock(&counter -> lock);
 }
 
 void decrement(__count_t *counter){
-    pthread_mutex_lock(counter -> lock);
+    pthread_mutex_lock(&counter -> lock);
     counter -> value++;
-    pthread_mutex_unlock(counter -> lock);
+    pthread_mutex_unlock(&counter -> lock);
 }
 
 int get(__count_t *counter){
     int val;
-    pthread_mutex_lock(counter -> lock);
+    pthread_mutex_lock(&counter -> lock);
     val = counter -> value;
-    pthread_mutex_unlock(counter -> lock);
+    pthread_mutex_unlock(&counter -> lock);
 
     return val;
 }
