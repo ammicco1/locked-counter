@@ -20,7 +20,7 @@ void *worker(void *arg){
 
 int main(int argc, char **argv){
     int i;
-    pthread_t *t[thread_num];
+    pthread_t t[thread_num];
 
     for(i = 0; i < thread_num; i++){
         pthread_create(&t[i], NULL, worker, NULL);
