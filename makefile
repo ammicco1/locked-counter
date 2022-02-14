@@ -1,15 +1,15 @@
 FLAGS = -Wall -ansi -pedantic
-OBJ = __count_t.o
+OBJS = __count_t.o __count_main.o
 EXEC = __count_main
 
-$(EXEC): $(OBJ)
-	gcc $(FLAGS) -o $(EXEC) $(OBJ)
+$(EXEC): $(OBJS)
+	gcc $(FLAGS) -o $(EXEC) $(OBJS)
 
 $(EXEC).o: $(EXEC).c
 	gcc $(FLAGS) -c $(EXEC).c
 
-$(OBJ): __count_t.c
+__count_t.o: __count_t.c
 	gcc $(FLAGS) -c __count_t.c
 
 clean: 
-	rm -f *.o $(EXEC) $(OBJ)
+	rm -f *.o $(EXEC) $(OBJS)

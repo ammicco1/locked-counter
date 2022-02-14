@@ -3,12 +3,15 @@
 #include <stdlib.h>
 #include "./__count_t.h"
 
+#define thread_num 4
+#define for_i 100000
+
 __count_t counter;
 
 void *worker(void *arg){
     int i;
 
-    for(i = 0; i < 100000; i++){
+    for(i = 0; i < for_i; i++){
         increment(&counter);
     }
     
@@ -17,11 +20,9 @@ void *worker(void *arg){
 
 int main(int argc, char **argv){
     int i;
-    pthread_t *t;
+    pthread_t *t[thread_num];
 
-    t = malloc(atoi(argv[1]) * sizeof(pthread_t));
-
-    for(i = 0; i < atoi(argv[1]); i++){
+    for(i = 0; i < thread_num; i++){
         pthread_create(&t[i], NULL, worker, NULL);
     }
 
